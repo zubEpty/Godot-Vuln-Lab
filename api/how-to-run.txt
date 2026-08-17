@@ -1,0 +1,26 @@
+1. Open PowerShell inside the ../api directory
+
+Run:
+
+   python -m venv venv
+
+2. Activate it:
+
+   .\venv\Scripts\Activate.ps1
+
+Then:
+
+    pip install -r requirements.txt
+
+
+3. Start the server:
+
+	uvicorn server:app --host 127.0.0.1 --port 8000 --reload
+
+You should see something like:
+
+	Uvicorn running on http://127.0.0.1:8000
+
+Your API is now running.
+
+****** You can visit http://127.0.0.1:8000/docs to get the details overview*********
