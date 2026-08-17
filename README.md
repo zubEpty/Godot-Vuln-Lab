@@ -271,22 +271,3 @@ This project is intentionally designed as an educational security laboratory.
 The vulnerabilities and insecure implementations are included for **authorized testing, reverse-engineering practice, and security education**.
 
 Only test these techniques against applications and systems that you own or have explicit permission to assess.
-
-## 🚧 Project Status
-
-**Work in progress.**
-
-Planned additions include:
-
-* [ ] Complete authentication flow
-* [ ] Quiz system
-* [ ] Random question selection
-* [ ] Score API
-* [ ] User profile API
-* [ ] Leaderboard
-* [ ] WebGL export
-* [ ] Client-side vulnerability demonstrations
-* [ ] API security testing scenarios
-* [ ] Hardened server implementation
-* [ ] Vulnerable vs. secure comparison
-* [ ] Reverse-engineering walkthrough
