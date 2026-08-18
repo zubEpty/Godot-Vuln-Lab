@@ -1,0 +1,8 @@
+1. Install python if you haven't installed 
+2. open terminal on current directory 
+3. use command
+
+        python3 -m http.server 8001 
+       
+4. keep the terminal open
+5. open browser and visit http://127.0.0.1:8001/Corpo-quiz.html
