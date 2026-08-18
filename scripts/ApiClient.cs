@@ -4,6 +4,9 @@ using System.Text;
 
 public partial class ApiClient : Node
 {
+	public event Action<Godot.Collections.Dictionary> PlayerLoaded;
+	public event Action<string> PlayerLoadFailed;
+
 	private const string ApiUrl = "http://127.0.0.1:8000";
 
 	private HttpRequest _httpRequest;
@@ -16,6 +19,7 @@ public partial class ApiClient : Node
 		_httpRequest.RequestCompleted += OnRequestCompleted;
 
 		GD.Print("API Client initialized.");
+		UpdateScore("player001",0);
 	}
 
 	public void GetPlayer(string playerId)
@@ -106,5 +110,27 @@ public partial class ApiClient : Node
 
 		GD.Print("Server Response:");
 		GD.Print(response);
+
+		Variant parsedResponse = Json.ParseString(response);
+
+		if (parsedResponse.VariantType != Variant.Type.Dictionary)
+		{
+			return;
+		}
+
+		var data = parsedResponse.AsGodotDictionary();
+
+		if (data.ContainsKey("error"))
+		{
+			PlayerLoadFailed?.Invoke(
+				data["error"].AsString()
+			);
+			return;
+		}
+
+		if (data.ContainsKey("username") && data.ContainsKey("profile"))
+		{
+			PlayerLoaded?.Invoke(data);
+		}
 	}
 }
